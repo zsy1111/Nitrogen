@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Nitrogen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <div>
+   
+    <!-- <img class="img-fluid" src="argon.png" alt="New York" style="position: fixed;"> -->
+    <div class="btn-group-vertical">
+      <div class="btn-group">
+          <button type="button" class="btn  argon1" style="background-image: url(1.jpg);"></button>
+          <button type="button" class="btn  argon1" style="background-image: url(2.jpg);"></button>
+          <button type="button" class="btn  argon1" style="background-image: url(3.jpg);"></button>
+          <button type="button" class="btn  argon1" style="background-image: url(4.jpg);"></button>
+        </div> 
+        <div class="btn-group"> 
+          <button type="button" class="btn  argon2" style="background-image: url(5.jpg);" onclick='VoiceAnnouncements("氮本身不燃烧，但盛装氮气容易与设备遇明火、高温可使器内压力急剧升高直至爆炸。应用水冷却火场中容器。");'></button>
+          <button type="button" class="btn  argon2" style="background-image: url(6.jpg);" onclick='VoiceAnnouncements("没有明显的毒性作用，由于无味、无色、无嗅.故空气中含量高时无法发觉，如果氧含量低于百分之十八 则威胁生命。缺氧症状为恶心、困倦、皮肤眼脸变青，无知觉直至死亡。液氮对眼、皮肤呼吸道会造成冻伤。")'></button>
+          <button type="button" class="btn  argon2" style="background-image: url(7.jpg);" onclick='VoiceAnnouncements("储存于阴凉、干燥、通风良好的仓间内。远离火种、热源，防止阳光直射。保持容器密封。搬运时要轻装轻卸，防止剧烈震荡，包装及容器损坏。分装和搬运作业要注意个人防护。")'></button>
+          <button type="button" class="btn  argon2" style="background-image: url(8.jpg);" onclick='VoiceAnnouncements("灭火剂 :雾状水、二氧化碳、砂土。")'></button>
+        </div> 
+        <div class="btn-group"> 
+          <button type="button" class="btn  argon3" style="background-image: url(9.jpg);" onclick='VoiceAnnouncements("切断电源，迅速撤离泄漏区。处理泄漏事故时，处理人员戴自给正压式呼吸器，处理液氮应佩戴防冻护具。泄漏区域应加强通风。")'></button>
+          <button type="button" class="btn  argon3" style="background-image: url(10.jpg);" onclick='VoiceAnnouncements("皮肤接触:接触液氮，可形成冻伤，用温水冲洗患处缓解症状，就医。眼晴接触:液氮溅入眼中，翻开眼睑，用水冲洗，立即就医。吸入:将晃着移至新鲜空气处，输氧或施行人工呼吸。")'></button>
+        </div> 
+        <div class="btn-group"> 
+          <button type="button" class="btn  argon4" style="background-image: url(11.jpg);" ></button>
+        </div> 
+  </div> 
+  </div>
+   
+    
+
+</body>
+<style>
+  
+  .bak{
+      position: absolute;
+  }
+  .argon1{
+   
+   padding-right: 615%;
+   padding-top: 405%;
+   background-color: rgba(0, 0, 0, 0);
+   
+  }
+  .argon2{
+     
+     padding-right: 615%;
+     padding-top: 505%;
+     background-color: rgba(0, 0, 0, 0); 
+    }
+    .argon3{
+     
+     padding-right: 1254%;
+     padding-top: 379%;
+     background-color: rgba(0, 0, 0, 0); 
+    }
+    .argon4{
+     
+     padding-right: 2533%;
+     padding-top: 181%;
+     background-color: rgba(209, 34, 34, 0); 
+    }
+  .bak1{
+      display: block;
+  }
+   
+ 
+</style>
+<script>
+			
+  var tape = null;//声明一个参数方便可以对当前播放的语音进行暂停，继续播放等操作。
+  function VoiceAnnouncements(text) {
+    if (tape != null) {//防止用户多次点击播放语音播放重复，如果当前语音正在播放则再点击播放时会先判断然后暂停当前播放的音频重新播放
+      if (!tape.paused) {
+        tape.pause();
+      }
+    }
+    
+    var url = "https://dict.youdao.com/dictvoice?audio="+text+"&le=zh"
+    var audio = new Audio(url);
+    tape = audio;
+    audio.src = url;
+    audio.play();//播放音频
+  };
+
+</script>
+
+</html>
